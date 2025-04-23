@@ -53,8 +53,44 @@
                                     Submit Feedback
                                 </button>
                             </div>
+                             <!-- Response Message -->
+                    <div id="responseMessage" class="hidden p-4 rounded-lg"></div>
                         </form>
                     </div>
+
+
+                <script>
+                    document.getElementById('feedbackform').addEventListener('submit', async function(e) {
+                        e.preventDefault();
+
+                        const submitButton = document.getElementById('submitButton');
+                        const buttonText = document.getElementById('buttonText');
+                        const spinner = document.getElementById('spinner');
+                        const responseMessage = document.get('responseMessage');
+
+                        submitButton.disabled = true;
+                        buttonText.textContent = 'Processing...';
+                        spinner.classlist.remove('hidden');
+                        responseMessage.classlist.add('hidden');
+
+                        const payload = {
+                            name: document.getElementById('name').value,
+                            email: document.getElementById('email').value,
+                            message: document.getElementById('message').value,
+                        };
+
+                        try {
+                            const response = await fetch('/feedback', {
+                                method: 'POST',
+                                headers: {
+                                    'Content - '
+                                }
+                            })
+                        }
+
+                    })
+                </script>
+
                 </div>
             </div>
         </div>
